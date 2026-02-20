@@ -3,6 +3,7 @@ let arrays = JSON.parse(localStorage.getItem("prodlist")) || []
 document.querySelector("#formbtn").addEventListener("click", function (e) {
     e.preventDefault()
     productform()
+    
 })
 
 function isValidURL(url) {
@@ -12,6 +13,20 @@ function isValidURL(url) {
     } catch (err) {
         return false
     }
+}
+addcat()
+function addcat(){
+    let categorylist = JSON.parse(localStorage.getItem("categorylist")) || []
+    let category=document.querySelector("#category")
+    let dupoption=`
+            <option value="">Select the Category</option>
+        `
+    categorylist.forEach((e)=>{
+        dupoption+=`
+            <option value="${e.Category}">${e.Category}</option>
+        `
+    })
+    category.innerHTML=dupoption
 }
 
 let productform = () => {
@@ -250,7 +265,7 @@ tabledata()
 
 
 
-localStorage.getItem("categorylist",JSON.parse(arrays))
+// localStorage.getItem("categorylist",JSON.parse(arrays))
 
-let catii = document.getElementById("category")
+// let catii = document.getElementById("category")
 

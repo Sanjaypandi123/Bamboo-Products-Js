@@ -24,7 +24,7 @@ function createdcard() {
 
                 <div class="cartprice">
                     <div class="cart1">
-                        <p class="prices"><b>Product Price :</b>₹${element.price}</p>
+                        <p class="prices"><b>Product Price :</b>₹${parseFloat(element.price)}</p>
                     </div>
                     <div class="cart2">
                         <div class="top">

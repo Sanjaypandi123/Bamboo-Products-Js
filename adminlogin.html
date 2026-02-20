@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User-Login-page</title>
+    <title>Admin-Login-page</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./css/login.css">
 </head>
@@ -11,32 +11,32 @@
     <div class="container">
             <form class="card">
             <div class="heading">
-                <h1>User Login</h1>
+                <h1>Admin Login</h1>
             </div>
             <div class="main">
                 <div class="box box1">
                     <label for="">E-MAIL :</label>
-                    <input type="email" placeholder="auto@gmail.com" id="email">
-                    <span id="emailErr" class="error"></span>
+                    <input type="text" placeholder="Admin" id="admin">
+                    <span id="adminErr" class="error"></span>
                 </div>
                 <div class="box box4">
                     <label for="">PASSWORD :</label>
-                    <input type="password" placeholder="******" id="pass">
-                    <span id="passErr" class="error"></span>
+                    <input type="password" placeholder="******" id="adminpass">
+                    <span id="adminpassErr" class="error"></span>
                 </div>
             </div>
             <div class="btn">
-                <button type="button" id="sumitbtn">Login</button>
+                <button type="button" id="adminbtn">Login</button>
             </div>
             <div class="foot">
-                <h3>You Are a New User Go <a href="./register.html">Register</a>?</h3>
-                <h3 style="text-align: center; padding: 10px 0 0;"><a href="./adminlogin.html">Admin Login</a>?</h3>
+                <!-- <h3>You Are a New User Go <a href="./register.html">Register</a>?</h3> -->
+                <h3 style="text-align: center; padding: 10px 0 0;"><a href="./index.html">User Login</a>?</h3>
             </div>
             </form>
     </div>
 
 
-    <script src="./script/login.js">
+    <script src="./script/admin.js">
         
     </script>
 </body>

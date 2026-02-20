@@ -10,7 +10,7 @@ let login = () => {
 
     console.log(arrays);
 
-    debugger
+    // debugger
     let email = document.getElementById("email")
     let pass = document.getElementById("pass")
 

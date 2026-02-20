@@ -75,6 +75,7 @@ nav .nav-item a:hover::after{
     align-items: center;
     flex-wrap: wrap;
     row-gap: 40px;
+    position: relative;
 }
 .page-6 .row2 .cartbox{
    display: flex;
@@ -218,8 +219,16 @@ nav .nav-item a:hover::after{
     box-shadow: 0 0 2px;
 }
 .page-6 .row2 .totalprice{
+    /* width: max-content;
+    height: max-content;
     margin-top: 40px;
+    position: fixed; */
+    /* z-index: 10; */
+    top: 35%;
+    right: 5%;
 }
+
+
 .page-6 .row2 .totalprice .buy button{
     padding: 10px 20px;
     border-radius: 30px;

@@ -102,7 +102,7 @@ nav .nav-item a:hover::after{
 }
 
 
-.shop-2 aside{
+.shop-2 .flex1{
     /* border: 1px solid red; */
     /* width: 300px; */
     height: fit-content;
@@ -112,7 +112,7 @@ nav .nav-item a:hover::after{
     background-color: #ba925b83;
     border-radius: 30px;
 }
-.shop-2 aside .left-categry{
+.shop-2 .flex1 .left-categry{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -121,7 +121,7 @@ nav .nav-item a:hover::after{
     padding: 50px 40px;
 }
 
-.shop-2 aside .left-categry select{
+.shop-2 .flex1 .left-categry select{
     border: none;
     outline: none;
     border-bottom: 2px solid black;
@@ -129,7 +129,7 @@ nav .nav-item a:hover::after{
     font-size: 1.3rem;
     
 }
-.shop-2 aside .left-categry select option{
+.shop-2 .flex1 .left-categry select option{
     background-color: var(--bgcolor-1);
     color: white;
 }
@@ -367,17 +367,20 @@ nav .nav-item a:hover::after{
         position: absolute;
         top: 110px;
         left: 0;
-        width: 250px;
         /* height: 200px; */
-        background-color: #ba925ba6;
         transform: translateX(-110%);
         transition: 0.3s ease;
         z-index: 1000;
+        background-color: #ba925ba6;
         border-radius: 40px;
+        width: 250px;
     }
 
-    .shop-2 .flex1.tog {
-        transform: translateX(25%);
+    .shop-2 .tog {
+        background-color: #ba925ba6;
+        border-radius: 40px;
+        width: 250px;
+        transform: translateX(135%);
     }
 
     /* Main content */

@@ -8,7 +8,6 @@ document.querySelector("#registbtn").addEventListener("click", function (e) {
 let register = () => {
     let name = document.getElementById("name")
     let email = document.getElementById("email")
-    let phone = document.getElementById("phone")
     let pass = document.getElementById("pass")
     let cpass = document.getElementById("cpass")
     
@@ -17,7 +16,6 @@ let register = () => {
     
     let nameErr = document.getElementById("nameErr")
     let emailErr = document.getElementById("emailErr")
-    let phoneErr = document.getElementById("phoneErr")
     let passErr = document.getElementById("passErr")
     let cpassErr = document.getElementById("cpassErr")
     
@@ -25,7 +23,6 @@ let register = () => {
     
     let isname = false,
     isemail = false,
-    isphone = false,
     ispass = false,
     iscpass = false
     
@@ -51,34 +48,7 @@ let register = () => {
         emailErr.innerText = "";
         isemail=true
     }
-    // if (email.value === "") {
-    //     emailErr.innerText = "Pleace Enter Your E-Mail-Id"
-    //     isemail = false
-    // } else {
-    //     emailErr.innerText = ""
-    //     isemail = true
-    // }
-    //===========================================================
-
-    let phonePattern = /^[0-9]{10}$/;
-    if (phone.value.trim() === "") {
-        phoneErr.innerText = "Please Enter Your Phone Number";
-        isphone = false;
-    } else if (!phone.value.match(phonePattern)) {
-        phoneErr.innerText = "Enter Valid 10 Digit Phone Number";
-        isphone = false;
-    } else {
-        phoneErr.innerText = "";
-        isphone=true
-    }
-
-    // if (phone.value === "") {
-    //     phoneErr.innerText = "Pleace Enter Your Phone-Number"
-    //     isphone = false
-    // } else {
-    //     phoneErr.innerText = ""
-    //     isphone = true
-    // }
+   
     //===========================================================
     if (pass.value === "") {
         passErr.innerText = "Pleace Enter Your password"
@@ -107,12 +77,11 @@ let register = () => {
     }
     //===========================================================
 
-    if (isname && isemail && isphone && ispass && iscpass) {
+    if (isname && isemail && ispass && iscpass) {
         // alert('Form Submitted Successfully!')
         let objects = {
             UserName: name.value,
             Email: email.value,
-            PhoneNo: phone.value,
             Password: pass.value,
             Confirm_Password: cpass.value
         }
@@ -121,7 +90,6 @@ let register = () => {
 
         name.value=""
         email.value=""
-        phone.value=""
         pass.value=""
         cpass.value=""
         Swal.fire({

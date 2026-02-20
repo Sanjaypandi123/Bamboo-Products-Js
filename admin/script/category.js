@@ -5,6 +5,7 @@ document.querySelector("#formbtn").addEventListener("click", function (e) {
     cattabledata()
 })
 let CATEGORY = document.getElementById("CATEGORY")
+let CATid = document.getElementById("catid")
 let CATEGORYErr = document.getElementById("CATEGORYErr")
 
 let ischeck = false
@@ -19,27 +20,40 @@ let categoryform = () => {
     }
 
     if (ischeck) {
-        let object = {
-            Category: CATEGORY.value
+        if (CATid.value == "") {
+            let object = {
+                id: Date.now(),
+                Category: CATEGORY.value
+            }
+            categorylist.push(object)
+        } else {
+            categorylist = categorylist.map((e) => {
+                if (CATid.value == e.id) {
+                    return {
+                        id: CATid.value,
+                        Category: CATEGORY.value
+                    }
+                }
+                return e
+            })
         }
-        categorylist.push(object)
         CATEGORY.value = ""
         localStorage.setItem("categorylist", JSON.stringify(categorylist))
     }
-    catinsert()
+    cattabledata()
 }
 
-let catinsert = () => {
-    let addcategory = ""
-    categorylist.forEach(element => {
-        addcategory += `
-                            <option value="category 1">${element.Category}</option>
-                        `
-    });
-    document.querySelector("#category").innerHTML = addcategory
-}
+// let catinsert = () => {
+//     let addcategory = ""
+//     categorylist.forEach(element => {
+//         addcategory += `
+//                             <option value="category 1">${element.Category}</option>
+//                         `
+//     });
+//     document.querySelector("#category").innerHTML = addcategory
+// }
 
-catinsert()
+// catinsert()
 
 let cattabledata = () => {
     let trow = ""
@@ -47,20 +61,20 @@ let cattabledata = () => {
         categorylist.forEach((element) => {
             trow += ` 
         <tr align=center>
-                            
-                            <td>${element.Category}</td>
+    
+        <td>${element.Category}</td>
                             
                             <td>
-                                <button type="button" style="padding: 5px; font-size: 1rem; border-radius: 20px; border: none; outline: none; cursor: pointer;" onclick="catupdate(${element.Category})"><i class="fa-solid fa-marker"></i></button>
+                                <button type="button" onclick="catupdate(${element.id})"><i class="fa-solid fa-marker"></i></button>
                             </td>
-                            <td><button type="button" style="padding: 5px; font-size: 1rem; border-radius: 20px; border: none; outline: none; cursor: pointer;" onclick="catdelt(${element.Category})"><i class="fa-solid fa-trash-can"></i></button>
+                            <td><button type="button" onclick="catdelt(${element.id})"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                         </tr>`
         })
     } else {
         trow += `
         <tr>
-        <td colspan=9 align=center>No Record Found</td>
+        <td colspan=2 align=center>No Record Found</td>
         </tr>`
     }
 
@@ -68,4 +82,34 @@ let cattabledata = () => {
     document.querySelector("#catBody").innerHTML = trow
 }
 
+
+
+
+
+function catupdate(upId) {
+    let updatecat = categorylist.find((e) => e.id == upId)
+
+    if (updatecat) {
+        alert("hii")
+        CATid.value = updatecat.id,
+            CATEGORY.value = updatecat.Category
+    }
+
+}
+
+function catdelt(upid) {
+    let sure = confirm("You Want to delete the category?")
+    if (sure) {
+        categorylist = categorylist.filter((e) => {
+            if (e.id != upid) {
+                return e
+            }
+        })
+        localStorage.setItem("categorylist",JSON.stringify(categorylist))
+    }
+    else{
+        alert("Your Category safe!!! ")
+    }
+    cattabledata()
+}
 cattabledata()
