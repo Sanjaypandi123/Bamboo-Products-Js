@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+
+<body>
+    <div class="container">
+        <form class="card">
+            <div class="heading">
+                <h1>Register Form</h1>
+            </div>
+            <div class="main">
+                <div class="box box1">
+                    <label for="">NAME :</label>
+                    <input type="text" placeholder="Enter Your Name" id="name">
+                    <span id="nameErr" class="error"></span>
+                </div>
+                <div class="box box2">
+                    <label for="">E-MAIL :</label>
+                    <input type="email" placeholder="auto@gmail.com" id="email">
+                    <span id="emailErr" class="error"></span>
+                </div>
+                <div class="box box3">
+                    <label for="">PHONE NO :</label>
+                    <input type="number" placeholder="9988776655" id="phone">
+                    <span id="phoneErr" class="error"></span>
+                </div>
+                <div class="box box4">
+                    <label for="">PASSWORD :</label>
+                    <input type="password" placeholder="******" id="pass">
+                    <span id="passErr" class="error"></span>
+                </div>
+                <div class="box box5">
+                    <label for="">CONFIRM-PASSWORD :</label>
+                    <input type="password" placeholder="******" id="cpass">
+                    <span id="cpassErr" class="error"></span>
+                </div>
+            </div>
+            <div class="btn">
+                <button type="button" id="registbtn">Submit</button>
+            </div>
+            <div class="foot">
+                <h3>Already Reagister <a href="./index.html">Login</a>?</h3>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <script src="./script/register.js">
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/categry.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="flex1">
+            <div class="menuBar">
+                <div class="account">
+                    <div class="photo">
+                        <img src="./image/attiiii.png" alt="">
+                    </div>
+                    <div class="email">
+                        <h3>BambooProducts</h3>
+                    </div>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fa-solid fa-chart-column"></i><a href="./index.html">Dashboard</a></li>
+                        <li><i class="fa-solid fa-layer-group"></i><a href="./category.html">Category</a></li>
+                        <li><i class="fa-brands fa-themeco"></i><a href="./product.html">Product</a></li>
+                        <li><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="#">Log Out</a></li>
+                    </ul>
+                </div>
+                <footer>
+                    <h3>allRightsReserved</h3>
+                </footer>
+            </div>
+
+        </div>
+        <div class="flex2">
+            <header>
+                <nav>
+                    <div class="start">
+                        <button id="barIcon"><i class="fa-solid fa-bars"></i></button>
+                    </div>
+                    <div class="end">
+                        <button type="button">H</button>
+                        <button type="button">H</button>
+                        <button type="button">H</button>
+                        <button type="button">H</button>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="category-page1">
+                <form>
+                    <label class="title">Category Form</label>
+                    <div class="input">
+                        <input type="text" placeholder="Enter your category" id="CATEGORY">
+                        <span id="CATEGORYErr" class="error"></span>
+                    </div>
+                    <div class="btn">
+                        <button id="formbtn">Submit</button>
+                    </div>
+                    <select name="" id="category" aria-placeholder="category">
+                    </select>
+                </form>
+                <div class="cattable">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="catBody">
+                            <tr>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="./script/category.js"></script>
+    <script src="./script/dashboard.js"></script>
+    <script src="./script/product.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: start;
+    padding-left: 10%;
+    background: url(../image/regbg.png) no-repeat center;
+    background-size: cover;
+}
+.container .card{
+    /* border: 1px solid red; */
+    width: 500px;
+    /* height: 650px; */
+    padding: 10px 0 ;
+    border-radius: 30px;
+    box-shadow: 0 0 15px;
+    backdrop-filter: blur(18px);
+}
+.container .card .heading{
+    /* border: 1px solid red; */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #14571c;
+}
+.container .card .main{
+    /* border: 1px solid red; */
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    margin: 20px 0;
+}
+.container .card .main .box{
+    /* border: 1px solid red; */
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container .card .main .box label{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+}
+.container .card .main .box input{
+    font-size: 1rem;
+    margin: 0 30px;
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    padding-bottom: 2px;
+    color: black;
+    /* border: 1px solid red; */
+}
+.container .card .main .box input::placeholder{
+    color: rgb(0, 0, 0);
+    font-weight: 200;
+    font-size: .9rem;
+    padding-left: 5px;
+}
+.container .card .main .box .error{
+    color: rgb(255, 0, 0);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 30px;
+    padding-bottom: 10px;
+}
+.container .card .btn{
+    /* border: 1px solid red; */
+    height: 50px;
+    display: grid;
+    place-content: center;
+}
+.container .card .btn button{
+    font-size: 1.2rem;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 5px;
+    background-color: rgba(0, 0, 0, 0.481);
+    color: white;
+    transition: .5s;
+}
+.container .card .btn button:hover{
+    transform: translateY(-3px);
+}
+.container .card .foot{
+    display: grid;
+    place-content: center;
+    padding: 10px 0;
+}
+.container .card .foot h3{
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+}
+.container .card .foot h3 a{
+    color: #107d3f;
+    font-weight: 600;
+}
+
+
+@media screen and (max-width: 992px) {
+
+    .container {
+        justify-content: center;
+        padding-left: 0;
+        padding: 40px 20px;
+    }
+
+    .container .card {
+        width: 500px;
+    }
+
+    .container .card .main {
+        height: auto;
+        padding: 0 30px;
+    }
+
+    .container .card .main .box input {
+        margin: 0 10px;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+
+    .container {
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .container .card {
+        width: 100%;
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    .container .card .heading h1 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .container .card .main {
+        padding: 0 10px;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .container .card .main .box {
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .container .card .main .box label {
+        font-size: 1rem;
+    }
+
+    .container .card .main .box input {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .container .card .main .box .error {
+        font-size: 0.8rem;
+        margin-left: 0;
+    }
+
+    .container .card .btn button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .container .card .foot h3 {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
