@@ -99,6 +99,6 @@ let register = () => {
         });
         setInterval(() => {
             window.location.href="./index.html"
-        }, 3000);
+        }, 1000);
     }
 }

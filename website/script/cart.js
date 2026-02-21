@@ -3,15 +3,18 @@ let addcard = document.querySelector("#addcard-page")
 
 function createdcard() {
     let cartArray = JSON.parse(localStorage.getItem("cartArray")) || []
-    // console.log(cartArray);
     cartCount.innerText = cartArray.length;
-
+ 
     let dupcard = ''
+     let totalPrice = 0
     cartArray.forEach(element => {
+        let perPrice = element.price * element.quantity;
+        totalPrice += perPrice;
+
         dupcard += `
         <div class="cartbox">
                 <div class="left">
-                    <div class="box" data-id="${element.id}">
+                    <div class="box" data-id="${element.productid}">
                         <div class="top img6">
                             <img class="img-1" src="${element.img1}" alt="">
                             <img class="img-2" src="${element.img2}" alt="">
@@ -28,7 +31,7 @@ function createdcard() {
                     </div>
                     <div class="cart2">
                         <div class="top">
-                            <p class="prices"><b>Total :</b>₹${element.price*element.quantity}</p>
+                            <p class="prices"><b>Total :</b>₹${perPrice}</p>
                         </div>
                         <div class="bottom">
                             <button type=button onclick="subqty(${element.id})"><i class="fa-solid fa-minus"></i></button>
@@ -44,11 +47,6 @@ function createdcard() {
             </div>
             `
     });
-
-    let totalPrice = 0
-    cartArray.forEach((e) => {
-        totalPrice += e.price * e.quantity
-    })
 
     dupcard += `
         <div class="cartbox totalprice">
@@ -122,26 +120,27 @@ let over = () => {
             title: "Oops...",
             text: "Please Add the Products u want",
         });
+
+        setTimeout(() => {
+            window.location.href="./shop.html"
+        }, 1000);
     }
 }
 
 
+
 function cardremove(proid) {
-    let cartArray = JSON.parse(localStorage.getItem("cartArray")) || []
-    cartArray = cartArray.filter((element) => {
-        if (element.id != proid) {
-            Swal.fire({
-                title: "Product is Removed",
-                icon: "success",
-                draggable: true
-            });
-            return element
-        } else {
 
-        }
+    let cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
 
-    })
+    cartArray = cartArray.filter(element => element.id != proid);
+
     localStorage.setItem("cartArray", JSON.stringify(cartArray));
-    createdcard()
 
+    Swal.fire({
+        title: "Product Removed",
+        icon: "success"
+    });
+
+    createdcard();
 }

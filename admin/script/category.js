@@ -39,6 +39,12 @@ let categoryform = () => {
         }
         CATEGORY.value = ""
         localStorage.setItem("categorylist", JSON.stringify(categorylist))
+
+        Swal.fire({
+            title: "New Category is Added",
+            icon: "success",
+            draggable: true
+        });
     }
     cattabledata()
 }
@@ -90,10 +96,9 @@ function catupdate(upId) {
     let updatecat = categorylist.find((e) => e.id == upId)
 
     if (updatecat) {
-        alert("hii")
         CATid.value = updatecat.id,
             CATEGORY.value = updatecat.Category
-    }
+        }
 
 }
 
@@ -105,10 +110,19 @@ function catdelt(upid) {
                 return e
             }
         })
-        localStorage.setItem("categorylist",JSON.stringify(categorylist))
-    }
-    else{
-        alert("Your Category safe!!! ")
+        Swal.fire({
+            title: "Your Category is Deleted",
+            icon: "success",
+            draggable: true
+        });
+        localStorage.setItem("categorylist", JSON.stringify(categorylist))
+
+    } else {
+        Swal.fire({
+            title: "Your Category is Safe",
+            icon: "success",
+            draggable: true
+        });
     }
     cattabledata()
 }

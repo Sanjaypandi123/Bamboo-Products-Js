@@ -26,6 +26,7 @@
 
 .menuBar {
     height: 100%;
+    /* width: 300px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,8 +42,9 @@
 }
 
 .account .photo {
-    height: 100px;
-    width: 100px;
+    /* border: 1px solid red; */
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
 }
 .account .photo img{
@@ -52,7 +54,7 @@
 }
 
 .account .email h3 {
-    font-size: .8rem;
+    font-size: 1rem;
     color: #e6c393;
 }
 
@@ -151,31 +153,24 @@ nav .start {
 
 }
 
-nav .start a {
-    font-size: 1.4em;
-    text-decoration: none;
-    color: white;
-}
-
 nav .start button {
     background: none;
     border: none;
     font-size: 1.4em;
     color: white;
+    display: none;
 }
 
 nav .end {
-    padding: 10px 20px;
+    padding: 9px 20px;
     display: flex;
     gap: 40px;
 }
-
-nav .end button {
-    background: none;
-    border: none;
-    font-size: 1.4em;
-    color: white;
+nav .end h1{
+    color: wheat;
 }
+
+
 
 @media screen and (max-width:576px) {
 
@@ -205,6 +200,9 @@ nav .end button {
         gap: 10px;
 
     }
+    nav .start button {
+    display: block;
+}
 
     .flex2 header {
         padding: 10px 0px;
@@ -227,14 +225,14 @@ nav .end button {
 } */
 
     nav .end {
-        border: 1px solid red;
+        /* border: 1px solid red; */
         padding: 10px 0px;
         display: flex;
         gap: 10px;
     }
 
     nav .end button {
-        border: 1px solid red;
+        /* border: 1px solid red; */
         background: none;
         border: none;
         font-size: 1.2em;

@@ -3,7 +3,7 @@ let arrays = JSON.parse(localStorage.getItem("prodlist")) || []
 document.querySelector("#formbtn").addEventListener("click", function (e) {
     e.preventDefault()
     productform()
-    
+
 })
 
 function isValidURL(url) {
@@ -15,18 +15,19 @@ function isValidURL(url) {
     }
 }
 addcat()
-function addcat(){
+
+function addcat() {
     let categorylist = JSON.parse(localStorage.getItem("categorylist")) || []
-    let category=document.querySelector("#category")
-    let dupoption=`
+    let category = document.querySelector("#category")
+    let dupoption = `
             <option value="">Select the Category</option>
         `
-    categorylist.forEach((e)=>{
-        dupoption+=`
+    categorylist.forEach((e) => {
+        dupoption += `
             <option value="${e.Category}">${e.Category}</option>
         `
     })
-    category.innerHTML=dupoption
+    category.innerHTML = dupoption
 }
 
 let productform = () => {
@@ -155,28 +156,31 @@ let productform = () => {
                 imgurl2: imgurl2.value,
                 productname: prodname.value,
                 categoryname: category.value,
-                prices: price.value,
+                prices: Number(price.value),
                 stocks: stock.value
             }
             arrays.push(objects)
         } else {
             arrays = arrays.map((e) => {
-                if (PROID.value == e.productid) {
-                    return {
-                        productid: PROID.value,
-                        imgurl1: imgurl1.value,
-                        imgurl2: imgurl2.value,
-                        productname: prodname.value,
-                        categoryname: category.value,
-                        prices: price.value,
-                        stocks: stock.value
+                    if (PROID.value == e.productid) {
+                        return {
+                            productid: PROID.value,
+                            imgurl1: imgurl1.value,
+                            imgurl2: imgurl2.value,
+                            productname: prodname.value,
+                            categoryname: category.value,
+                            prices: price.value,
+                            stocks: stock.value
+                        }
                     }
+                    return e
+
                 }
-                return e
-            })
+
+            )
         }
 
-        
+
         imgurl1.value = ""
         imgurl2.value = ""
         prodname.value = ""
@@ -184,6 +188,13 @@ let productform = () => {
         price.value = ""
         stock.value = ""
         localStorage.setItem("prodlist", JSON.stringify(arrays))
+
+        Swal.fire({
+            title: "New Product is Added",
+            icon: "success",
+            draggable: true
+        });
+
     }
 
     tabledata()
@@ -224,10 +235,10 @@ let tabledata = () => {
 
 
 
-function update(upId)  {
-    let updateproduct = arrays.find((e)=>e.productid == upId)
+function update(upId) {
+    let updateproduct = arrays.find((e) => e.productid == upId)
 
-    if(updateproduct){
+    if (updateproduct) {
         document.getElementById("PROID").value = updateproduct.productid
         document.getElementById("imgurl1").value = updateproduct.imgurl1
         document.getElementById("imgurl2").value = updateproduct.imgurl2
@@ -250,17 +261,25 @@ let delt = (prtID) => {
                 return e
             }
         })
-
+        Swal.fire({
+            title: "Your Product is Deleted",
+            icon: "success",
+            draggable: true
+        });
         localStorage.setItem("prodlist", JSON.stringify(arrays))
         tabledata()
     } else {
-        alert("your product is Safe")
+        Swal.fire({
+            title: "Your Product is Safe",
+            icon: "success",
+            draggable: true
+        });
     }
 
 }
 tabledata()
 
-   
+
 
 
 
@@ -268,4 +287,3 @@ tabledata()
 // localStorage.getItem("categorylist",JSON.parse(arrays))
 
 // let catii = document.getElementById("category")
-

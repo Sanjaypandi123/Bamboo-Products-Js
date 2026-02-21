@@ -65,7 +65,7 @@ let login = () => {
         });
         setInterval(() => {
             window.location.href="./website/index.html"
-        }, 3000);
+        }, 1000);
 
     } else {
         Swal.fire({

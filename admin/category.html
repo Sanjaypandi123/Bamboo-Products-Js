@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Category</title>
+    <link rel="icons" href="./image/attiiii.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/categry.css">
 </head>
@@ -29,11 +31,11 @@
                         <li><i class="fa-solid fa-chart-column"></i><a href="./index.html">Dashboard</a></li>
                         <li><i class="fa-solid fa-layer-group"></i><a href="./category.html">Category</a></li>
                         <li><i class="fa-brands fa-themeco"></i><a href="./product.html">Product</a></li>
-                        <li><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="#">LogOut</a></li>
+                        <li><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="../index.html">LogOut</a></li>
                     </ul>
                 </div>
                 <footer>
-                    <h3>allRightsReserved</h3>
+                    <!-- <h3>allRightsReserved</h3> -->
                 </footer>
             </div>
 
@@ -45,10 +47,7 @@
                         <button id="barIcon"><i class="fa-solid fa-bars"></i></button>
                     </div>
                     <div class="end">
-                        <button type="button">H</button>
-                        <button type="button">H</button>
-                        <button type="button">H</button>
-                        <button type="button">H</button>
+                        <h1 id="time"></h1>
                     </div>
                 </nav>
             </header>
@@ -89,6 +88,7 @@
     </div>
     <script src="./script/category.js"></script>
     <script src="./script/dashboard.js"></script>
+    <script src="./script/time.js"></script>
 </body>
 
 </html>

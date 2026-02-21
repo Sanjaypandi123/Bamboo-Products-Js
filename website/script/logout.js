@@ -1,15 +1,30 @@
-// let logout = () => {
-//     document.querySelector("#logut").addEventListener("click", (e) => {
-//         e.preventDefault();
-//     });
+// document.querySelector("#logout").addEventListener("click", (e) => {
+//     e.preventDefault();
 //     Swal.fire({
-//         title: "Site is Logouted...",
+//         title: "Site Logged out successfully!",
 //         icon: "success",
-//         draggable: true
+//         confirmButtonText: "OK"
+//     }).then(() => {
+//         window.location.href = "../index.html";
 //     });
-//     setInterval(() => {
-//         window.location.href = "../index.html"
-//     }, 3000);
-// }
+// });
 
+// localStorage.setItem("user", JSON.stringify(userData));
 
+// document.querySelector("#logout").addEventListener("click", function (e) {
+//     e.preventDefault();
+
+//     // Remove only login data
+//     localStorage.removeItem("user");
+
+//     Swal.fire({
+//         icon: "success",
+//         title: "Logged out successfully!",
+//         timer: 1500,
+//         showConfirmButton: false
+//     });
+
+//     setTimeout(() => {
+//         window.location.href = "index.html";
+//     }, 1500);
+// });

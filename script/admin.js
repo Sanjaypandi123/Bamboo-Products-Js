@@ -37,7 +37,9 @@ let adminlogin = () => {
             icon: "success",
             draggable: true
         });
-            window.location.href="./admin/index.html"
+            setTimeout(() => {
+                window.location.href="./admin/index.html"
+            }, 1000);
         }
         else{
             adminpassErr.innerText="Invalid Password"

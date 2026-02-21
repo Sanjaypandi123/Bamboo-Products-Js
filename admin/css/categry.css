@@ -97,3 +97,10 @@ font-size: 1.1rem;
     color: black;
     box-shadow: 0 0 3px;
 }
+
+
+@media all and (max-width:768px) {
+    .category-page1 .cattable table{
+        width: 350px;
+    }
+}
