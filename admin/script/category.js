@@ -112,7 +112,7 @@ function catdelt(upid) {
         text: "You Want to delete the category?",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#32291d",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!"
     }).then((result) => {

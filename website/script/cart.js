@@ -142,7 +142,7 @@ function cardremove(proid) {
         text: "You want to Remove the product from the cart",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#32291d",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, Remove it!"
     }).then((result) => {

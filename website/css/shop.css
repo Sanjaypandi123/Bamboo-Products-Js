@@ -45,6 +45,9 @@ nav .container-fluid .div a {
     font-size: var(--font-1);
     color: var(--color-1);
 }
+nav .container-fluid .div a:hover{
+    color: #f9c06f;
+}
 
 nav .nav-item a {
     position: relative;

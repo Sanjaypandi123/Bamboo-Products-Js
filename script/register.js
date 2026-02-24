@@ -109,4 +109,5 @@ let register = () => {
             window.location.href="./index.html"
         }, 1000);
     }
+    
 }

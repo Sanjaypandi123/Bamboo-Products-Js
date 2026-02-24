@@ -29,6 +29,7 @@ let login = () => {
         ischeck = false
     } else {
         emailErr.innerText = ""
+        ischeck=true
     }
 
     let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
@@ -40,14 +41,22 @@ let login = () => {
         ischeck = false;
     } else {
         emailErr.innerText = "";
+        ischeck=true
     }
     //===========================================================
 
     if (pass.value === "") {
         passErr.innerText = "Pleace Enter Your password"
         ischeck = false
-    } else {
+    }
+    else if (pass.value.length < 6){
+        passErr.innerText = "Password Must Be At Least 6 Characters"
+        ischeck=false
+
+    }
+     else {
         passErr.innerText = ""
+        ischeck=true
     }
     //===========================================================
 

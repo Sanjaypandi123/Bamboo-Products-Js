@@ -1,30 +1,20 @@
-// document.querySelector("#logout").addEventListener("click", (e) => {
-//     e.preventDefault();
-//     Swal.fire({
-//         title: "Site Logged out successfully!",
-//         icon: "success",
-//         confirmButtonText: "OK"
-//     }).then(() => {
-//         window.location.href = "../index.html";
-//     });
-// });
+document.querySelector("#logout").addEventListener("click", (e) => {
+    e.preventDefault();
+    Swal.fire({
+  text: "Are You sure logout the page?",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#32291d",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes Logout"
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+      text: "logout successfully",
+      icon: "success"
+    });
+    window.location.href="../index.html"
+  }
+});
+});
 
-// localStorage.setItem("user", JSON.stringify(userData));
-
-// document.querySelector("#logout").addEventListener("click", function (e) {
-//     e.preventDefault();
-
-//     // Remove only login data
-//     localStorage.removeItem("user");
-
-//     Swal.fire({
-//         icon: "success",
-//         title: "Logged out successfully!",
-//         timer: 1500,
-//         showConfirmButton: false
-//     });
-
-//     setTimeout(() => {
-//         window.location.href = "index.html";
-//     }, 1500);
-// });

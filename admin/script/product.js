@@ -277,13 +277,12 @@ function update(upId) {
 
 let delt = (prtID) => {
 
-    // let cfmes = confirm("do you want to Delete Product?")
     Swal.fire({
         title: "Are you sure?",
         text: "You Want to delete the Product?",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#32291d",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!"
     }).then((result) => {
