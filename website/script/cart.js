@@ -154,6 +154,7 @@ function cardremove(proid) {
                 text: "Product is Removed.",
                 icon: "success"
             });
+            createdcard();
         }else{
             Swal.fire({
                 text: "Product is Safed.",
@@ -163,5 +164,4 @@ function cardremove(proid) {
         }
     });
 
-    createdcard();
 }
