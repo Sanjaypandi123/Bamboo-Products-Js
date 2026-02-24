@@ -4,9 +4,9 @@ let addcard = document.querySelector("#addcard-page")
 function createdcard() {
     let cartArray = JSON.parse(localStorage.getItem("cartArray")) || []
     cartCount.innerText = cartArray.length;
- 
+
     let dupcard = ''
-     let totalPrice = 0
+    let totalPrice = 0
     cartArray.forEach(element => {
         let perPrice = element.price * element.quantity;
         totalPrice += perPrice;
@@ -118,11 +118,11 @@ let over = () => {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Please Add the Products u want",
+            text: "Please Add the Products You want",
         });
 
         setTimeout(() => {
-            window.location.href="./shop.html"
+            window.location.href = "./shop.html"
         }, 1000);
     }
 }
@@ -133,13 +133,34 @@ function cardremove(proid) {
 
     let cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
 
-    cartArray = cartArray.filter(element => element.id != proid);
+    // cartArray = cartArray.filter(element => element.id != proid);
 
-    localStorage.setItem("cartArray", JSON.stringify(cartArray));
-
+    // localStorage.setItem("cartArray", JSON.stringify(cartArray));
+    
     Swal.fire({
-        title: "Product Removed",
-        icon: "success"
+        title: "Are you sure?",
+        text: "You want to Remove the product from the cart",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Remove it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            cartArray = cartArray.filter(element => element.id != proid);
+             localStorage.setItem("cartArray", JSON.stringify(cartArray));
+            Swal.fire({
+                title: "Deleted!",
+                text: "Product is Removed.",
+                icon: "success"
+            });
+        }else{
+            Swal.fire({
+                text: "Product is Safed.",
+                icon: "success"
+            });
+
+        }
     });
 
     createdcard();

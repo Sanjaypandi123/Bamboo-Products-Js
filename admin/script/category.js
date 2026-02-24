@@ -18,7 +18,7 @@ let categoryform = () => {
         CATEGORYErr.innerText = ""
         ischeck = true
     }
-
+    let iscatup = false
     if (ischeck) {
         if (CATid.value == "") {
             let object = {
@@ -26,6 +26,7 @@ let categoryform = () => {
                 Category: CATEGORY.value
             }
             categorylist.push(object)
+            iscatup = true
         } else {
             categorylist = categorylist.map((e) => {
                 if (CATid.value == e.id) {
@@ -34,32 +35,33 @@ let categoryform = () => {
                         Category: CATEGORY.value
                     }
                 }
+                // else if(CATEGORY.value===CATEGORY.value){
+                //     alert("hi")
+                // }
                 return e
             })
+        }
+
+        if (iscatup) {
+            Swal.fire({
+                title: "New Category is Added",
+                icon: "success",
+                draggable: true
+            });
+            iscatup = false
+        }else {
+            Swal.fire({
+                title: "Category is Updated",
+                icon: "success",
+                draggable: true
+            });
         }
         CATEGORY.value = ""
         localStorage.setItem("categorylist", JSON.stringify(categorylist))
 
-        Swal.fire({
-            title: "New Category is Added",
-            icon: "success",
-            draggable: true
-        });
     }
     cattabledata()
 }
-
-// let catinsert = () => {
-//     let addcategory = ""
-//     categorylist.forEach(element => {
-//         addcategory += `
-//                             <option value="category 1">${element.Category}</option>
-//                         `
-//     });
-//     document.querySelector("#category").innerHTML = addcategory
-// }
-
-// catinsert()
 
 let cattabledata = () => {
     let trow = ""
@@ -98,32 +100,43 @@ function catupdate(upId) {
     if (updatecat) {
         CATid.value = updatecat.id,
             CATEGORY.value = updatecat.Category
-        }
+    }
 
 }
 
 function catdelt(upid) {
-    let sure = confirm("You Want to delete the category?")
-    if (sure) {
-        categorylist = categorylist.filter((e) => {
-            if (e.id != upid) {
-                return e
-            }
-        })
-        Swal.fire({
-            title: "Your Category is Deleted",
-            icon: "success",
-            draggable: true
-        });
-        localStorage.setItem("categorylist", JSON.stringify(categorylist))
+    // let sure = confirm("You Want to delete the category?")
 
-    } else {
-        Swal.fire({
-            title: "Your Category is Safe",
-            icon: "success",
-            draggable: true
-        });
-    }
-    cattabledata()
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You Want to delete the category?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            categorylist = categorylist.filter((e) => {
+                if (e.id != upid) {
+                    return e
+                }
+            })
+            Swal.fire({
+                title: "Your Category is Deleted",
+                icon: "success",
+                draggable: true
+            });
+            localStorage.setItem("categorylist", JSON.stringify(categorylist))
+            cattabledata()
+
+        } else {
+            Swal.fire({
+                title: "Your Category is Safe",
+                icon: "success",
+                draggable: true
+            });
+        }
+    });
 }
 cattabledata()

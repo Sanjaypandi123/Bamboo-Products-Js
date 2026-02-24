@@ -3,7 +3,11 @@ let arrays = JSON.parse(localStorage.getItem("UserList")) || []
 document.querySelector("#registbtn").addEventListener("click", function (e) {
     e.preventDefault()
     register()
+    let usercount =arrays.length
+    console.log(usercount);
 })
+
+
 
 let register = () => {
     let name = document.getElementById("name")
@@ -34,6 +38,7 @@ let register = () => {
         isname = false
     } else {
         nameErr.innerText = ""
+        name.style.border=""
         isname=true
     }
     //===========================================================
@@ -46,6 +51,7 @@ let register = () => {
         isemail = false;
     } else {
         emailErr.innerText = "";
+        email.style.border=""
         isemail=true
     }
    
@@ -61,6 +67,7 @@ let register = () => {
     }
      else {
         passErr.innerText = ""
+        pass.style.border=""
         ispass=true
     }
     //===========================================================
@@ -68,12 +75,13 @@ let register = () => {
         cpassErr.innerText = "Pleace Enter Your confirm password"
         iscpass = false
     } else if (cpass.value === pass.value) {
-
         cpassErr.innerText = ""
         iscpass=true
-
+        
     } else {
         cpassErr.innerText = "Your password is Mismatched"
+        iscpass=false
+
     }
     //===========================================================
 

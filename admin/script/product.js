@@ -123,9 +123,14 @@ let productform = () => {
         priceErr.innerText = "Enter Your price"
         priceErr.style.color = "red"
         isprice = false
-    } else {
+    } else if (price.value > 0) {
         priceErr.innerText = ""
         isprice = true
+
+    } else {
+        priceErr.innerText = "Price can't be Negative"
+        priceErr.style.color = "red"
+        isprice = false
     }
     // price-------end
 
@@ -139,14 +144,21 @@ let productform = () => {
         stockErr.innerText = "Enter Your stock"
         stockErr.style.color = "red"
         isstock = false
-    } else {
+    } else if (price.value > 0) {
         stockErr.innerText = ""
         isstock = true
+
+    } else {
+        stockErr.innerText = "Stock can't be Negative"
+        stockErr.style.color = "red"
+        isstock = false
     }
     // stock-------end
 
 
     // ===================================================================
+    // let isup = false
+    let isadd = false
     if (isimage1 && isimage2 && isproduct && iscategory && isprice && isstock) {
         if (PROID.value == "") {
 
@@ -160,27 +172,44 @@ let productform = () => {
                 stocks: stock.value
             }
             arrays.push(objects)
+            isadd = true
+
+
+
         } else {
             arrays = arrays.map((e) => {
-                    if (PROID.value == e.productid) {
-                        return {
-                            productid: PROID.value,
-                            imgurl1: imgurl1.value,
-                            imgurl2: imgurl2.value,
-                            productname: prodname.value,
-                            categoryname: category.value,
-                            prices: price.value,
-                            stocks: stock.value
-                        }
+                if (PROID.value == e.productid) {
+                    return {
+                        productid: PROID.value,
+                        imgurl1: imgurl1.value,
+                        imgurl2: imgurl2.value,
+                        productname: prodname.value,
+                        categoryname: category.value,
+                        prices: price.value,
+                        stocks: stock.value
                     }
-                    return e
 
                 }
 
-            )
+                return e
+            })
         }
+        if (isadd) {
 
-
+            Swal.fire({
+                title: "New Product is Added",
+                icon: "success",
+                draggable: true
+            });
+            isadd = false
+        } else {
+            Swal.fire({
+                title: "Product is Updated",
+                icon: "success",
+                draggable: true
+            });
+        }
+        PROID.value = ""
         imgurl1.value = ""
         imgurl2.value = ""
         prodname.value = ""
@@ -188,12 +217,6 @@ let productform = () => {
         price.value = ""
         stock.value = ""
         localStorage.setItem("prodlist", JSON.stringify(arrays))
-
-        Swal.fire({
-            title: "New Product is Added",
-            icon: "success",
-            draggable: true
-        });
 
     }
 
@@ -254,36 +277,39 @@ function update(upId) {
 
 let delt = (prtID) => {
 
-    let cfmes = confirm("do you want to Delete Product?")
-    if (cfmes) {
-        arrays = arrays.filter((e) => {
-            if (e.productid != prtID) {
-                return e
-            }
-        })
-        Swal.fire({
-            title: "Your Product is Deleted",
-            icon: "success",
-            draggable: true
-        });
-        localStorage.setItem("prodlist", JSON.stringify(arrays))
-        tabledata()
-    } else {
-        Swal.fire({
-            title: "Your Product is Safe",
-            icon: "success",
-            draggable: true
-        });
-    }
+    // let cfmes = confirm("do you want to Delete Product?")
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You Want to delete the Product?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+
+
+        if (result.isConfirmed) {
+            arrays = arrays.filter((e) => {
+                if (e.productid != prtID) {
+                    return e
+                }
+            })
+            Swal.fire({
+                title: "Your Product is Deleted",
+                icon: "success",
+                draggable: true
+            });
+            localStorage.setItem("prodlist", JSON.stringify(arrays))
+            tabledata()
+        } else {
+            Swal.fire({
+                title: "Your Product is Safe",
+                icon: "success",
+                draggable: true
+            });
+        }
+    });
 
 }
 tabledata()
-
-
-
-
-
-
-// localStorage.getItem("categorylist",JSON.parse(arrays))
-
-// let catii = document.getElementById("category")

@@ -35,16 +35,13 @@
     color: #14571c;
 }
 .container .card .main{
-    /* border: 1px solid red; */
-    /* height: 350px; */
     display: flex;
     flex-direction: column;
-    padding: 0 50px;
-    margin: 20px 0;
+    padding: 20px 50px;
 }
 .container .card .main .box{
     /* border: 1px solid red; */
-    height: 20%;
+    padding: 5px 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,11 +49,12 @@
 .container .card .main .box label{
     font-size: 1.2rem;
     font-weight: 600;
+    padding-bottom: 5px;
     color: black;
 }
 .container .card .main .box input{
     font-size: 1rem;
-    margin: 0 30px;
+    /* margin: 0 30px; */
     outline: none;
     border: none;
     background: none;
@@ -75,7 +73,6 @@
     color: rgb(255, 0, 0);
     font-size: 1rem;
     font-weight: 600;
-    margin-left: 30px;
     padding-bottom: 10px;
 }
 .container .card .btn{
@@ -107,9 +104,11 @@
 .container .card .foot h3{
     color: rgb(0, 0, 0);
     font-weight: 400;
+    font-size: 1rem;
 }
 .container .card .foot h3 a{
     color: #107d3f;
+    padding-left: 10px;
     font-weight: 600;
 }
 
@@ -183,7 +182,7 @@
     .container .card .btn button {
         width: 100%;
         font-size: 1rem;
-        padding: 8px;
+        /* padding: 8px; */
     }
 
     .container .card .foot h3 {
