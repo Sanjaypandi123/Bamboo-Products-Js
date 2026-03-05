@@ -13,7 +13,9 @@ document.querySelector("#logout").addEventListener("click", (e) => {
       text: "logout successfully",
       icon: "success"
     });
-    window.location.href="../index.html"
+    setTimeout(() => {
+      window.location.href="../index.html"
+    }, 1000);
   }
 });
 });
